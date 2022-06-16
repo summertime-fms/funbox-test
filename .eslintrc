@@ -1,0 +1,10 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": ["htmlacademy/vanilla", "eslint-plugin-import", "prettier"],
+    "rules": {
+        "strict": 0
+    }
+}

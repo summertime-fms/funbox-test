@@ -1,0 +1,40 @@
+*, ::after, ::before {
+  box-sizing : inherit;
+}
+
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-family: var(--main-font);
+  background-color: #111111;
+  background-image: url("./../img/pattern.png");
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+  object-fit: cover;
+  object-position: center;
+
+  user-select: none;
+}

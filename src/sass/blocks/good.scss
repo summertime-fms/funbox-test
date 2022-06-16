@@ -1,0 +1,183 @@
+.good {
+  display: flex;
+  flex-direction: column;
+}
+
+.good__inner {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  background-color: var(--white);
+  border: 4px solid var(--blue);
+  border-radius: 10px;
+  clip-path: polygon(0% 43px, 33px 0%, 100% 0%, 100% 100%, 0% 100%);
+  transition: border-color var(--trans);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--lightblue);
+
+    &::before {
+      border-color: var(--lightblue) #0000 #0000 #0000;
+    }
+
+    .good__weight {
+      background-color: var(--lightblue);
+    }
+
+    + .good__buy button {
+      color: var(--lightblue);
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -58px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 97px 75px 0 0;
+    border-color: var(--blue) #0000 #0000 #0000;
+    transition: border-color var(--trans);
+  }
+}
+
+.good__weight {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: 18px;
+  background-color: var(--blue);
+  transition: background-color var(--trans);
+
+  span {
+    display: block;
+    font-size: 42px;
+    text-align: center;
+  }
+}
+
+
+.good__text {
+  margin-bottom: 20px;
+  padding: 21px 15px 0 48px;
+}
+
+.good__slogan {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: var(--gray);
+}
+
+.good__title {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 48px;
+  line-height: 1.16;
+
+  span {
+    display: block;
+    font-size: 24px;
+  }
+}
+
+.good__description {
+  margin: 0;
+  width: 40%;
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.good__image {
+  margin-top: auto;
+}
+
+.good__buy {
+  font-size: 13px;
+  line-height: 15px;
+  color: var(--white);
+  text-align: center;
+
+  &--picked {
+    display: none;
+  }
+}
+
+.good__button-buy {
+  background: none;
+  border: 0;
+  padding: 0;
+  display: inline;
+  color: var(--blue);
+  text-decoration: dashed;
+  transition: color var(--trans);
+  cursor: pointer;
+  line-height: 15px;
+}
+
+.good__button-buy:hover,
+.good__button-buy:focus-visible {
+  color: var(--lightblue)
+}
+
+.good.good--out-of-stock {
+  position: relative;
+  cursor: default;
+  pointer-events: none;
+
+  .good__inner {
+    filter: grayscale(0.9);
+  }
+
+  .good__buy {
+    color: #FFFF66;
+  }
+}
+
+.good.active {
+  .good__buy--offer {
+    display: none;
+  }
+
+  .good__buy--picked {
+    display: block;
+  }
+}
+
+.good.selected {
+  .good__inner {
+    border-color: var(--pink);
+
+    &::before {
+      border-color: var(--pink) #0000 #0000 #0000;
+    }
+
+    .good__weight {
+      background-color: var(--pink);
+    }
+
+    &:hover {
+      border-color: var(--lightpink);
+
+      &::before {
+        border-color: var(--lightpink) #0000 #0000 #0000;
+      }
+
+      .good__weight {
+        background-color: var(--lightpink);
+      }
+    }
+  }
+}
